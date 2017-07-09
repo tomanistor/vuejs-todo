@@ -2,35 +2,41 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>To Do App</title>
+    <title>To Do List</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <h1>To Do App</h1>
+      <h1>To Do List</h1>
     </header>
 
     <div class="container" id="todo">
 
       <!-- Input panel -->
       <section class="panel">
-        <input type="checkbox" id="mark-all">
+        <input type="checkbox" id="mark-all" v-bind:checked="areAllChecked" v-on:click="checkAll">
         <input type="text" placeholder="What do you need to do?" autofocus class="text-input" v-model="newTask" v-on:keyup.enter="addTask">
-        <button>Clear List</button>
+        <button v-on:click="clearList">Clear List</button>
       </section>
 
       <!-- List of items -->
       <ul class="list">
-        <li v-for="task in taskList">
-          <input type="checkbox" class="checkbox">
+        <li v-for="task in taskList" v-bind:class="{done: task.checked}">
+          <input type="checkbox" class="checkbox" v-model="task.checked">
           <!-- <input type="text" v-model="task" class="text-input"> -->
           <label for="checkbox">{{ task.text }}</label>
-          <button class="delete">X</button>
+          <button class="delete" v-on:click="removeTask(task)">X</button>
         </li>
       </ul>
 
-      <!-- Strings -->
-      <pre>{{ $data }}</pre>
+      <!-- Code display -->
+      <section class="panel panel-bottom">
+        <div class="code">
+          <h2>Vue.js Data</h2>
+          <p>The code here demonstrates the two-way data binding of Vue.js. Interaction with the To Do List app above updates the data below instantaneously. That's pretty neat.</p>
+          <pre>{{ $data }}</pre>
+        </div>
+      </section>
 
     </div>
 

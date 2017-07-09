@@ -14,15 +14,23 @@ li {
 /* Global Styles */
 
 body {
-  line-height: 1;
+  line-height: 1.2;
   font-family: "Lato", sans-serif;
   background-color: #EFF1F2;
+}
+
+p, pre, h1, h2, {
+  color: #3E4651;
+}
+
+h1 {
+  text-align: center;
 }
 
 .container {
   width: 70%;
   margin: 1em auto 3em;
-  border: 1px solid #efefef;
+  border: 1px solid #EFF1F2;
 }
 
 .panel,
@@ -35,43 +43,54 @@ li {
   justify-content: space-between;
   list-style-type: none;
   padding: 10px;
-  border-bottom: 1px solid #efefef;
-  background-color: #E7E8EB;
+  border-bottom: 1px solid #EFF1F2;
+  border-radius: 2px;
+  background-color: #42729B;
 }
 
 .text-input {
-  border: 1px solid #dedede;
-  padding-left: 10px;
+  border: 1px solid #999;
+  border-radius: 2px;
+  padding: 0 10px 0 10px;
   width: 70%;
   height: 35px;
-  color: #555;
+  color: #3E4651;
+  font-size: 1.2em;
 }
 
 button {
-  color: #555;
-  background-color: #FFFFFF;
-  border: 1px solid #bbb;
+  color: #3E4651;
+  background-color: #DEDEDE;
+  border: 1px solid #999;
+  border-radius: 2px;
   outline: 0;
   width: 100px;
   height: 38px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 1em;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  margin: 10px;
 }
 
 
 /* Task  area */
 
 .list li {
-  background-color: #3465A4;
+  background-color: #2C82C9;
 }
 
 .list li .delete {
   background-color: transparent;
-  border: 1px solid #3465A4;
-  color: #ddd;
+  border: 1px solid #2C82C9;
+  color: #DDD;
   /* Hide the delete button by default*/
   visibility: hidden;
-  font-size: 20px;
+  font-size: 2em;
   font-weight: bold;
 }
 
@@ -84,16 +103,35 @@ button {
   padding-right: 10px;
   display: inline-block;
   width: 70%;
-  font-size: 18px;
+  font-size: 1.3em;
   line-height: 24px;
-  color: #fcfcfc;
+  color: #FCFCFC;
   z-index: 2;
   overflow: hidden;
 }
 
 .list li.done label {
-  color: #d9d9d9;
+  color: #DEDEDE;
   text-decoration: line-through;
+}
+
+
+/* Code */
+
+.panel-bottom {
+  margin-top: 100px;
+}
+
+.code {
+  width: 100%;
+  background-color: #FCFCFC;
+  border: 1px solid #999;
+  border-radius: 2px;
+  padding: 20px;
+}
+
+pre {
+  color: #3E4651;
 }
 
 
