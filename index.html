@@ -15,24 +15,30 @@
       <!-- Input panel -->
       <section class="panel">
         <input type="checkbox" id="mark-all">
-        <input type="text" placeholder="What do you need to do?" autofocus class="text-input">
+        <input type="text" placeholder="What do you need to do?" autofocus class="text-input" v-model="newTask" v-on:keyup.enter="addTask">
         <button>Clear List</button>
       </section>
 
       <!-- List of items -->
       <ul class="list">
-        <li>
+        <li v-for="task in taskList">
           <input type="checkbox" class="checkbox">
-          <input type="text" class="text-input">
-          <label for="checkbox"></label>
+          <!-- <input type="text" v-model="task" class="text-input"> -->
+          <label for="checkbox">{{ task.text }}</label>
           <button class="delete">X</button>
         </li>
       </ul>
 
+      <!-- Strings -->
+      <pre>{{ $data }}</pre>
+
     </div>
+
 
     <footer>
       <script src="https://unpkg.com/vue"></script>
+      <script src="script.js"></script>
+      </script>
     </footer>
   </body>
 </html>
