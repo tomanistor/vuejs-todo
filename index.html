@@ -33,8 +33,8 @@
       <ul class="list">
         <li v-for="task in taskList" v-bind:class="{done: task.checked}">
           <input type="checkbox" class="checkbox" v-model="task.checked">
-          <!-- <input type="text" v-model="task" class="text-input"> -->
-          <label for="checkbox">{{ task.text }}</label>
+          <label for="checkbox" v-on:click="editTask(task)" v-show="task != activeEdit">{{ task.text }}</label>
+          <input type="text" class="text-input" v-model="task.text" @blur="doneEdit(task)" v-show="task == activeEdit" v-on:keyup.enter="doneEdit(task)">
           <button class="delete" v-on:click="removeTask(task)">X</button>
         </li>
       </ul>

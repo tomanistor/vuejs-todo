@@ -7,7 +7,8 @@ new Vue({
   // Data values of list
   data: {
     newTask: "",
-    taskList: []
+    taskList: [],
+    activeEdit: null
   },
 
   // Computed properties in list
@@ -29,7 +30,7 @@ new Vue({
         // Push an object containing the task into the taskList array
         this.taskList.push({
           text: task,
-          checked: false
+          checked: false,
         });
         // Reset newTask to empty string
         this.newTask = "";
@@ -39,6 +40,18 @@ new Vue({
       // Delete task from array at current index using splice
       var index = this.taskList.indexOf(task);
       this.taskList.splice(index, 1);
+    },
+    editTask: function(task) {
+      // Edit task at current index
+      this.activeEdit = task
+    },
+    doneEdit(task) {
+      // Save edited task
+      if (!this.activeEdit) {
+        return
+      }
+      this.activeEdit = null
+      task.text = task.text.trim()
     },
     clearList: function() {
       // Reset taskList to empty array
